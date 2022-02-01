@@ -1,0 +1,29 @@
+
+This is a skin importer that takes a jtool skin and creates new sprites/objects/background/template room based off previously existing template sprites/objects/background/room
+The tool itself takes an xml config which specifies a bunch of things. You may look at the sample simpleConfig.xml to use as a template config
+
+The skin image files it checks for are the same as what ctool, jtool checks for (ex. water1.png)
+This tool can also import catharsis water and sideways platforms, and those files have names cwater.png and sideplat.png respectively
+Also note that I didn't know how to split up image strips (apple.png, save.png) so you have to split them manually and tack on _0/_1 to the end (ex. apple_0.png, apple_1.png, save_0.png, save_1.png)
+
+For sprites, objects, bgs, and rooms, you may manually specify what their names are in the template and what you want the output names to be
+However, it is usually more feasible to specify that you want to use the default naming scheme
+For sprites/objects, it names objects as spr/obj + prefix + defaultThingSuffix
+For bgs, the scheme is bg + prefix
+For template rooms, it's rTemplate + prefix
+Examples, obj29Cherry, sprBakaSidewaysPlatform, bgFFH, rTemplateNorth
+You may reference src/Types.hs to see what defaultThingSuffix is. Basically, it takes the object type and prints it out verbatim, except for a few cases
+
+
+For developers:
+
+This is written in Haskell, which is not exactly the most approachable language. And plus, I use lenses
+So if you don't know Haskell, I could recommend books like Learn You a Haskell for Great Good
+If you don't know about lenses, go look up Edward Kmett's talk on Lenses, Folds, and Traversals
+Feel free to dm me any questions you might have about this tool
+
+Now a few notes on my code:
+Internally, the outputInfo tag in the config corresponds to newInfo variables in the code
+I use the word thing to refer to either a sprite or object
+I made a monoid called SingleRes to deal with the expectation of having exactly one element in a list
+

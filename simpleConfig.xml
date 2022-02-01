@@ -1,0 +1,41 @@
+
+<config>
+  <skinInfo>
+    <dir>..\ctool\skins\baka</dir>
+  </skinInfo>
+  <templateInfo>
+    <dir>template\Importer Template.gmx</dir>
+    <prefix>29</prefix>
+    <sprites>
+      <useDefaults/>
+    </sprites>
+    <objects>
+    </objects>
+      <useDefaults/>
+    </objects>
+    <background>
+      <name>background7</name>
+    </background>
+    <room>
+      <name>tTemplateFFH</name>
+    </room>
+  </templateInfo>
+  <outputInfo>
+    <dir>test\output</dir>
+    <prefix>Baka</prefix>
+    <sprites>
+      <useDefaults/>
+    </sprites>
+    <objects>
+    </objects>
+      <useDefaults/>
+      <apple>objBakaCherry</apple>
+    </objects>
+    <background>
+      <useDefaults/>
+    </background>
+    <room>
+      <useDefaults/>
+    </room>
+  </outputInfo>
+</config>
