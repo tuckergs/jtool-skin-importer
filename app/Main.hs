@@ -1,6 +1,7 @@
 module Main where
 
 import Control.Monad
+import Data.Functor
 import System.Environment
 import System.Exit
 import System.IO
@@ -11,10 +12,9 @@ import Types
 
 main :: IO ()
 main = do
-  args <- getArgs
-  when (length args /= 1) $
-    die $ "Usage: ./skinimporter.exe [cfg name]"
-  let [cfgFileName] = args
+  cfgFileName <- getArgs >>= \case
+    [arg] -> return arg
+    _ -> die $ "Usage: ./skinimporter.exe [cfg name]"
 
   putStrLn "Reading config..."
   cfg <- readConfig cfgFileName
